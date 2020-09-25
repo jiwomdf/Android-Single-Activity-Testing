@@ -1,7 +1,8 @@
-package com.programmergabut.android_jetpack_testing
+package com.programmergabut.android_jetpack_testing.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.programmergabut.android_jetpack_testing.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
