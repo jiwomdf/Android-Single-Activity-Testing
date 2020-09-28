@@ -77,13 +77,19 @@ class ShoppingViewModelTest {
     }
 
     @Test
-    fun `insert shopping item with valid input, return success`(){
+    fun `insert shopping item with valid input, setCurrImageUrl() reset to "" & return success`(){
         viewModel.insertShoppingItem("name", "5", "3.0")
 
         val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
 
+        assertThat(viewModel.curImageUrl.value).isEqualTo("")
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.SUCCESS)
     }
+
+    /* @Test
+    fun `is currImage is observable, yes it is`(){
+        viewModel.curImageUrl
+    } */
 
 
 }
