@@ -11,7 +11,7 @@ interface ShoppingRepository {
 
     suspend fun deleteShoppingItem(shoppingItem: ShoppingItem)
 
-    fun observeAllShoppingItem(): LiveData<List<ShoppingItem>>
+    fun observeAllShoppingItems(): LiveData<List<ShoppingItem>>
 
     fun observeTotalPrice(): LiveData<Float>
 

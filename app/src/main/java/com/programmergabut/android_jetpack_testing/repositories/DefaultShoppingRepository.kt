@@ -12,7 +12,7 @@ import javax.inject.Inject
 class DefaultShoppingRepository @Inject constructor(
     private val shoppingDao: ShoppingDao,
     private val pixabayAPI: PixabayAPI
-):  ShoppingRepository{
+) : ShoppingRepository {
 
     override suspend fun insertShoppingItem(shoppingItem: ShoppingItem) {
         shoppingDao.insertShoppingItem(shoppingItem)
@@ -22,7 +22,7 @@ class DefaultShoppingRepository @Inject constructor(
         shoppingDao.deleteShoppingItem(shoppingItem)
     }
 
-    override fun observeAllShoppingItem(): LiveData<List<ShoppingItem>> {
+    override fun observeAllShoppingItems(): LiveData<List<ShoppingItem>> {
         return shoppingDao.observeAllShoppingItems()
     }
 
@@ -33,21 +33,15 @@ class DefaultShoppingRepository @Inject constructor(
     override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
         return try {
             val response = pixabayAPI.searchForImage(imageQuery)
-
-            if(response.isSuccessful){
-                if(response.body() != null)
-                    Resource.success(response.body())
-                else
-                    Resource.error("unknown error occured", null)
+            if(response.isSuccessful) {
+                response.body()?.let {
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occured", null)
+            } else {
+                Resource.error("An unknown error occured", null)
             }
-            else{
-                Resource.error("unknown error occured", null)
-            }
-        }
-        catch (ex: Exception){
-            Resource.error(ex.message.toString(), null)
+        } catch(e: Exception) {
+            Resource.error("Couldn't reach the server. Check your internet connection", null)
         }
     }
-
-
 }

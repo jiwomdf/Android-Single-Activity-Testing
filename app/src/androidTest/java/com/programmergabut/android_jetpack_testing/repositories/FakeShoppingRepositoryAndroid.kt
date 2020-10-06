@@ -6,7 +6,7 @@ import com.programmergabut.android_jetpack_testing.data.local.ShoppingItem
 import com.programmergabut.android_jetpack_testing.data.remote.responses.ImageResponse
 import com.programmergabut.android_jetpack_testing.other.Resource
 
-class FakeShoppingRepository : ShoppingRepository {
+class FakeShoppingRepositoryAndroid : ShoppingRepository {
 
     private val shoppingItems = mutableListOf<ShoppingItem>()
     private val observableShoppingItem = MutableLiveData<List<ShoppingItem>>(shoppingItems)
