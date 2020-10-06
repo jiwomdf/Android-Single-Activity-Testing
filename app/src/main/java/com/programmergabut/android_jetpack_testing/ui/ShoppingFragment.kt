@@ -2,6 +2,7 @@ package com.programmergabut.android_jetpack_testing.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -36,6 +37,13 @@ class ShoppingFragment @Inject constructor(
                 ShoppingFragmentDirections.actionShoppingFragmentToAddShoppingItemFragment()
             )
         }
+
+        val callback = object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                activity?.finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
 
     private val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(
