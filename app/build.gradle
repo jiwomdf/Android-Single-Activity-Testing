@@ -18,7 +18,7 @@ android {
 
         buildConfigField("String", "API_KEY", API_KEY)
 
-        testInstrumentationRunner "com.programmergabut.android_jetpack_testing.HiltTestRunner"
+        testInstrumentationRunner "com.programmergabut.android_jetpack_testing.TestRunner"
     }
 
     buildTypes {
