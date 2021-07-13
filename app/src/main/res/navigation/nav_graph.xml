@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/shoppingFragment"
-        android:name="com.programmergabut.singleActivityTesting.ui.ShoppingFragment"
+        android:name="com.programmergabut.singleactivitytesting.ui.ShoppingFragment"
         android:label="ShoppingFragment" >
         <action
             android:id="@+id/action_shoppingFragment_to_addShoppingItemFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/addShoppingItemFragment"
-        android:name="com.programmergabut.singleActivityTesting.ui.AddShoppingItemFragment"
+        android:name="com.programmergabut.singleactivitytesting.ui.AddShoppingItemFragment"
         android:label="AddShoppingItemFragment" >
         <action
             android:id="@+id/action_addShoppingItemFragment_to_imagePickFragment"
@@ -21,6 +21,6 @@
     </fragment>
     <fragment
         android:id="@+id/imagePickFragment"
-        android:name="com.programmergabut.singleActivityTesting.ui.ImagePickFragment"
+        android:name="com.programmergabut.singleactivitytesting.ui.ImagePickFragment"
         android:label="ImagePickFragment" />
 </navigation>
